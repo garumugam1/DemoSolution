@@ -55,3 +55,14 @@ jobs:
       with:
         name: managedSolutions
         path: out/release/
+
+    - name: Import solution to prod env  i.e. jessica
+      uses: microsoft/powerplatform-actions/import-solution@v0
+      with:
+        environment-url: ${{ secrets.URL }}
+        app-id: ${{ secrets.CLIENTID }}
+        client-secret: ${{ secrets.SECRET }}
+        tenant-id: ${{ secrets.TENANTID }}
+        solution-file: out/release/Solution1_managed.zip
+        force-overwrite: true
+        publish-changes: true
