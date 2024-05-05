@@ -36,3 +36,22 @@ jobs:
       with:
         name: managedSolutions
         path: out/solutions
+
+
+  release-to-staging:
+    needs: [convert-to-managed]
+    runs-on: windows-latest
+    environment: Prod
+    #env:
+      #RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+
+    - name: Fetch the ready to ship solution from GH artifact store
+      uses: actions/download-artifact@v2
+      with:
+        name: managedSolutions
+        path: out/release/
