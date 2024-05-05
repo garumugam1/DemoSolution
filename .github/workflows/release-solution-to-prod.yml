@@ -1,0 +1,36 @@
+name: release-solution-to-prod
+# prepare for releasing to prod:
+#   convert solution to managed (using a build PowerPlatform environment for the conversion)
+#   upload the solution to the GitHub artifacts and deploy to the PROD environment
+
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+jobs:
+  convert-to-managed:
+    runs-on: windows-latest
+    environment: Prod
+    #env:
+      #RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+
+    - name: Pack solution
+      uses: microsoft/powerplatform-actions/pack-solution@v0
+      with:
+        solution-folder: solutions/Solution1
+        solution-file: out/solutions/Solution1.zip
+        solution-type: Both
+
+    - name: Upload the ready to ship solution to GH artifact store
+      uses: actions/upload-artifact@v2
+      with:
+        name: managedSolutions
+        path: out/ship/Solution1_managed.zip
