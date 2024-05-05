@@ -43,6 +43,17 @@ jobs:
         solution-name: Solution1
         solution-output-file: out/exported/Solution1.zip
 
+    - name: export-solution action Managed
+      uses: microsoft/powerplatform-actions/export-solution@v0
+      with:
+        environment-url: ${{ secrets.URL }}
+        app-id: ${{ secrets.CLIENTID }}
+        client-secret: ${{ secrets.SECRET }}
+        tenant-id: ${{ secrets.TENANTID }}
+        solution-name: Solution1
+        managed: true
+        solution-output-file: out/exported/Solution1_managed.zip
+
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
