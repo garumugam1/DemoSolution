@@ -18,12 +18,14 @@ jobs:
       #RUNNER_DEBUG: 1
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4.1.1
       with:
         lfs: true
+    - name: Install Power Platform actions
+      uses: microsoft/powerplatform-actions/actions-install@v1.2.0
 
     - name: Pack solution
-      uses: microsoft/powerplatform-actions/pack-solution@v0
+      uses: microsoft/powerplatform-actions/pack-solution@v1.2.0
       with:
         solution-folder: solutions/Solution1
         solution-file: out/solutions/Solution1.zip
