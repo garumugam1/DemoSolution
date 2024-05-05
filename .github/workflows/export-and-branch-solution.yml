@@ -43,13 +43,7 @@ jobs:
         solution-name: Solution1
         solution-output-file: out/exported/Solution1.zip
 
-    - name: unpack-solution action
-      uses: microsoft/powerplatform-actions/unpack-solution@v0
-      with:
-        solution-file: out/exported/Solution1.zip
-        solution-folder: out/solutions/Solution1
-        solution-type: 'Unmanaged'
-        overwrite-files: true
+
 
 
 
