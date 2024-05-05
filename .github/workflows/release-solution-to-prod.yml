@@ -29,7 +29,7 @@ jobs:
       with:
         solution-folder: solutions/Solution1
         solution-file: out/solutions/Solution1.zip
-        #solution-type: Both
+        solution-type: Both
 
     - name: Upload the ready to ship solution to GH artifact store
       uses: actions/upload-artifact@v2

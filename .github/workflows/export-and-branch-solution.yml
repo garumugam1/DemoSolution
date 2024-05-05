@@ -48,7 +48,7 @@ jobs:
       with:
         solution-file: out/exported/Solution1.zip
         solution-folder: out/solutions/Solution1
-        solution-type: 'Unmanaged'
+        solution-type: Both
         overwrite-files: true
 
     - name: branch-solution, prepare it for a PullRequest
