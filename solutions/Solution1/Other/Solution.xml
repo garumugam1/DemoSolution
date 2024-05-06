@@ -6,7 +6,7 @@
       <LocalizedName description="solution1" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0.1</Version>
+    <Version>1.0.0.2</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>DefaultPublisheraprilwsgugan</UniqueName>
@@ -80,6 +80,7 @@
       </Addresses>
     </Publisher>
     <RootComponents>
+      <RootComponent type="1" schemaName="new_report" behavior="0" />
       <RootComponent type="1" schemaName="new_student" behavior="0" />
     </RootComponents>
     <MissingDependencies />
