@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: approved        
-        run: write-host "Approve for $ENV_NAME"
+        run: echo "Approve for $ENV_NAME"
 
 
   release-to-staging:
