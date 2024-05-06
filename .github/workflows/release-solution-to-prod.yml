@@ -68,11 +68,11 @@ jobs:
   staging-approval-gate:
     needs: convert-to-managed
     environment: Prod
+    env: 
+      ENV_NAME: Prod
     runs-on: ubuntu-latest
     steps:
-      - name: approved
-        env: 
-          ENV_NAME: Prod
+      - name: approved        
         run: write-host "Approve for $ENV_NAME"
 
 
