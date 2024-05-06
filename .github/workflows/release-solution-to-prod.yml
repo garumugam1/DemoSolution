@@ -73,7 +73,7 @@ jobs:
       - name: approved
         env: 
           ENV_NAME: Prod
-        run: write-host "Approve for $(env.ENV_NAME)"
+        run: write-host "Approve for $ENV_NAME"
 
 
   release-to-staging:
