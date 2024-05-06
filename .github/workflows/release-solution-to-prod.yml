@@ -66,14 +66,15 @@ jobs:
 
 #staging approval before prod env
   staging-approval-gate:
-    needs: dev-deploy
-    environment: staging
+    needs: convert-to-managed
+    environment: Prod
     runs-on: ubuntu-latest
     steps:
       - name: approved
         env: 
-          ENV_NAME: Staging
+          ENV_NAME: Prod
         run: write-host "Approve for $($env.ENV_NAME)"
+
 
   release-to-staging:
     needs: [convert-to-managed]
