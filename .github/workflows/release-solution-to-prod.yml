@@ -64,10 +64,16 @@ jobs:
 
 
 
-
-
-
-
+#staging approval before prod env
+  staging-approval-gate:
+    needs: dev-deploy
+    environment: staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: approved
+        env: 
+          ENV_NAME: Staging
+        run: write-host "Approve for $($env.ENV_NAME)"
 
   release-to-staging:
     needs: [convert-to-managed]
@@ -97,3 +103,5 @@ jobs:
         solution-file: out/release/Solution1_managed.zip
         force-overwrite: true
         publish-changes: true
+
+
